@@ -1,52 +1,25 @@
 module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
+  parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+  plugins: ['@typescript-eslint'],
   parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
+    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
+    sourceType: 'module', // Allows for the use of imports
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true, // Allows for the parsing of JSX
+    },
   },
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+    },
   },
-  env: {
-    browser: true,
-    amd: true,
-    node: true
-  },
-  extends: [
-    'eslint-config-prettier',
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended'
-  ],
-  plugins: [
-    '@typescript-eslint',
-    'eslint-plugin-prettier',
-    'react',
-    'jsx-a11y',
-    'import',
-    'simple-import-sort'
-  ],
-  rules: {
-    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    'simple-import-sort/imports': 'warn',
-    'simple-import-sort/exports': 'warn',
+  plugins: ['@typescript-eslint'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
 
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      {
-        components: ['Link'],
-        specialLink: ['hrefLeft', 'hrefRight'],
-        aspects: ['invalidHref', 'preferButton']
-      }
-    ]
-  }
-};
+  rules: {
+    'react/prop-types': 0,
+    'react/display-name': 0,
+    'react/react-in-jsx-scope': 0,
+    'jsx-quotes': ['error', 'prefer-single'],
+  },
+}
